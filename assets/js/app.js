@@ -30,6 +30,14 @@ function InsertarRegistro() {
       return;
     }
 
+    var childrenNumber = Number(
+      document.getElementById("ChildrenNumberTextBox").value
+    );
+
+    if (childrenNumber > 10 && !confirm("¿El número de hijos es correcto?")) {
+      return;
+    }
+
     var a = document.getElementById("PersonTable").insertRow(1);
     var b = a.insertCell(0);
     var c = a.insertCell(1);
@@ -40,13 +48,6 @@ function InsertarRegistro() {
     var children = a.insertCell(6);
     var g = a.insertCell(7);
 
-    var childrenNumber = Number(
-      document.getElementById("ChildrenNumberTextBox").value
-    );
-
-    if (childrenNumber > 10 && !confirm("¿El número de hijos es correcto?")) {
-      return;
-    }
     var genero = GetCheckedRadioValue("Sexo");
     if (!genero) {
       alert("El campo `sexo` es requerido.");
